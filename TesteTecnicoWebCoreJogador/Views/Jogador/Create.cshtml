@@ -1,0 +1,55 @@
+﻿@model TesteTecnicoWebCoreJogador.Models.Jogador
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Pagina do time</title>
+
+    <link href="~/css/bootstrap.css" rel="stylesheet">
+    <link href="~/css/small-business.css" rel="stylesheet">
+</head>
+
+<body>
+    <br />
+    <h2>Contratar Jogador</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Idade" class="control-label"></label>
+                    <input asp-for="Idade" class="form-control" />
+                    <span asp-validation-for="Idade" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumeroCamisa" class="control-label"></label>
+                    <input asp-for="NumeroCamisa" class="form-control" />
+                    <span asp-validation-for="NumeroCamisa" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="GolsMarcados" class="control-label"></label>
+                    <input asp-for="GolsMarcados" class="form-control" />
+                    <span asp-validation-for="GolsMarcados" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Criar" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index">Retornar para Lista</a>
+    </div>
+</body>
+</html>

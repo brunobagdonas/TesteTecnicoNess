@@ -1,0 +1,93 @@
+﻿
+@model IEnumerable<TesteTecnicoWebCoreJogador.Models.Jogador>
+@{
+    Layout = null;
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Pagina do time</title>
+
+    <link href="~/css/bootstrap.css" rel="stylesheet">
+    <link href="~/css/small-business.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <img src="~/images/logo-corinthians.png" /><h1>Corinthians</h1>
+
+                <h3>História do time</h3>
+
+                <p>
+                    O Sport Club Corinthians Paulista (mais conhecido como Corinthians, e pelos apelidos de "Timão" e "Coringão") é um clube multiesportivo brasileiro da cidade de São Paulo, capital do estado homônimo. Foi fundado como uma equipe de futebol no dia 1 de setembro de 1910 por um grupo de operários do bairro Bom Retiro. Seu nome foi inspirado no Corinthian FC de Londres, que excursionava pelo Brasil, sendo chamado pela imprensa brasileira da época de Corinthian's team.
+
+                    Embora tenha atuado em outras modalidades esportivas ao longo dos anos, seu reconhecimento e suas principais conquistas foram alcançados no futebol. O clube é um dos mais bem sucedidos do Brasil e das Américas nos últimos anos. Sendo o segundo maior campeão nacional, com onze conquistas, ficando atrás somente do Palmeiras. Tendo conquistado dois Mundiais de Clubes da FIFA (recordista na América do Sul, sendo superado mundialmente, somente pelo Barcelona e Real Madrid), uma Copa Libertadores da América invicta, uma Recopa Sul-Americana, sete Campeonatos Brasileiros, três Copas do Brasil, uma Supercopa do Brasil (recordista, ao lado de Flamengo e Grêmio), cinco Torneios Rio-São Paulo (recordista, ao lado de Palmeiras e Santos), duas Taça dos Campeões Estaduais Rio–São Paulo, 30 Campeonatos Paulistas (atual recordista) e uma Copa Bandeirantes (único vencedor).
+
+                    Suas cores tradicionais são o branco e o preto. Desde 2014, manda suas partidas de futebol na Neo Química Arena. Seus rivais históricos são o Palmeiras, com quem disputa o Derby Paulista, o São Paulo, com quem disputa o Majestoso, e o Santos, com quem disputa o Clássico Alvinegro. Sua torcida é conhecida como "Fiel" e seus torcedores são estimados em aproximadamente 27 milhões espalhados por todo o Brasil e pelo mundo, atrás nacionalmente somente do carioca Flamengo, além de ser o primeiro na Região Sudeste. É considerada também uma das maiores torcidas do mundo. Além disso, o Corinthians é o clube brasileiro com o maior número de sócio-torcedores, possuindo por volta de 130 mil registrados.
+
+                    De modalidades esportivas importantes ao longo da história corintiana,destacam-se o basquete, onde o clube desfrutou de relativo sucesso, especialmente durante as décadas de 1950 e 1960, com a conquista de títulos paulistas, brasileiros e até sul-americanos, além de um vice-campeonato mundial em 1966, a natação que rendeu quatro conquistas do Troféu Brasil de Natação, atual Troféu Maria Lenk, e o futsal, a partir da década de 1970, que rendeu conquistas em torneios estaduais e nacionais. A influência do remo na história do clube modificou o escudo original, que aludia meramente ao futebol, com o acréscimo do par de remos e da âncora como aparecem até os dias de hoje.
+                </p>
+
+
+                <h2>Elenco do time</h2>
+                <br />
+                <br />
+
+                <input type="button"
+                       value="Contratar Jogadores"
+                       onclick="location.href='@Url.Action("Create", "Jogador")'"  />
+                <br />
+                <br />
+
+                @foreach (var jogador in Model)
+                {
+                    <div class="col-md-4 mb-5">
+                        <div class=" panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">@jogador.Nome</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <b>
+                                            Idade
+                                        </b> @jogador.Idade
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Numero da camisa</b>
+                                        @jogador.NumeroCamisa
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Gols Marcados na história do clube</b>
+                                        @jogador.GolsMarcados
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="panel-footer">
+                                <input type="button" class="btn btn-info btn-sm" value="Editar dados do jogador" onclick="location.href='@Url.Action("Update", "Jogador", new { id = jogador.IdJogador })'" /> 
+                                <input type="button" class="btn btn-warning btn-sm" value="Detalhes do jogador" onclick="location.href='@Url.Action("Details", "Jogador", new { id = jogador.IdJogador })'" />
+                                <input type="button" class="btn btn-danger btn-sm" value="Demitir jogador" onclick="location.href='@Url.Action("Delete", "Jogador", new { id = jogador.IdJogador })'" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <script src="~/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/js/bootstrap.min.js"></script>
+
+    
+</body>
+</html>
